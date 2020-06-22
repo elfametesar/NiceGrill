@@ -7,7 +7,7 @@ urbandict
 pygdrive3fixed
 emoji
 fontTools
-pytube
+pytube3
 google-api-python-client
 lxml
 search-engine_parser
@@ -23,3 +23,4 @@ youtube_dl
 youtube2mp3
 youtube-search
 ffmpeg
+humanize
