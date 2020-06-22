@@ -24,3 +24,4 @@ youtube2mp3
 youtube-search
 ffmpeg
 humanize
+bs4
