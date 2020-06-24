@@ -80,7 +80,10 @@ class Snips:
             await message.edit("<b>No snip found in snips list.</b>")
             return
         for snip in get:
-            snips += "<b> ◍  " + snip["Key"] + "</b>\n"
+            try:
+                snips += "<b> ◍  " + snip["Key"] + "</b>\n"
+            except KeyError:
+                pass
         snipl = "<b>Snips that you saved: </b>\n\n" + snips
         await message.edit(snipl)
 
