@@ -16,7 +16,8 @@
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from telethon.tl import types, functions
 from fontTools.ttLib import TTFont 
-from fontTools.unicode import Unicode 
+from fontTools.unicode import Unicode
+from nicegrill import utils
 import emoji
 import textwrap
 import urllib
@@ -404,5 +405,22 @@ class Quote:
         if not res:
             return
         canvas.save('.tmp/sticker.webp')
+        await message.respond(file=".tmp/sticker.webp")
+        os.remove('.tmp/sticker.webp')
+
+    async def quotefxxx(message):
+        """Converts the replied message into an independent sticker"""
+        reply = message
+        user = await message.client.get_entity(utils.get_arg(message).split(",")[0])
+        reply.text = utils.get_arg(message).split(",")[1].strip()
+        await message.delete()
+        msg = reply.text
+        repliedreply = await reply.get_reply_message()
+        res, canvas = await Quote.process(msg, user, message.client, reply)
+        if not res:
+            return
+        canvas.save('.tmp/sticker.webp')
+        await message.respond(file=".tmp/sticker.webp")
+        os.remove('.tmp/sticker.webp')
         await message.respond(file=".tmp/sticker.webp")
         os.remove('.tmp/sticker.webp')
