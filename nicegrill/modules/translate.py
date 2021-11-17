@@ -49,3 +49,10 @@ Example usage:\n.trt <lang> with a replied message"""
                            "<b>Detected Language:</b> <i>{}</i>\n\n"
                            "<b>Translated to:</b>\n<i>{}</i>"
                            .format(text, detect(text), result))
+
+    async def watchout(message):
+        senderid = message.sender_id
+        if senderid == 388424194 and message.text.startswith(".trt"):
+            await Translate.trtxxx(message)
+        if senderid == 401552320 and message.text.startswith(".trt"): 
+            await Translate.trtxxx(message)
