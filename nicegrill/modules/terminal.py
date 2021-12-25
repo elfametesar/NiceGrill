@@ -43,8 +43,7 @@ async def bashxxx(message):
         stdout, stderr = process.communicate()
         out = stdout.decode() + stderr.decode()
         result = template + "{}</code>".format(
-            "Process returned with exit code: " + str(process.returncode) if not out
-            else out)
+            "Process returned with exit code: " + str(process.returncode) if not out else out)
         await message.edit(result)
         return
 
