@@ -31,7 +31,7 @@ class Terminal:
     async def bashxxx(message):
         cmd = utils.get_arg(message)
         process = subprocess.Popen(
-            cmd.split(),
+            cmd,
             shell=True,
             executable='/bin/bash',
             stderr=subprocess.PIPE,
