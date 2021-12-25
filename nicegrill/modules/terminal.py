@@ -28,6 +28,26 @@ class Terminal:
     logger.setLevel(logging.ERROR)
 
 
+async def bashxxx(message):
+        cmd = utils.get_arg(message)
+        process = subprocess.Popen(
+            cmd.split(),
+            shell=True,
+            executable='/bin/bash',
+            stderr=subprocess.PIPE,
+            stdout=subprocess.PIPE)
+        template = (
+            "\n<b>⬤ Input:</b>\n\n<code>{}</code>\n\n<b>⬤ Output:>
+            .format(cmd))
+        await message.edit(template)
+        stdout, stderr = process.communicate()
+        out = stdout.decode() + stderr.decode()
+        result = template + "{}</code>".format(
+            "Process returned with exit code: " + str(process.returncode) if not out
+            else out)
+        await message.edit(result)
+        return
+
     async def termxxx(message):
         cmd = utils.get_arg(message)
         process = await asyncio.create_subprocess_shell(
