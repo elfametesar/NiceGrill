@@ -37,7 +37,7 @@ class Terminal:
             stderr=subprocess.PIPE,
             stdout=subprocess.PIPE)
         template = (
-            "\n<b>⬤ Input:</b>\n\n<code>{}</code>\n\n<b>⬤ Output:>
+            "\n<b>⬤ Input:</b>\n\n<code>{}</code>\n\n<b>⬤ Output:</b>\n\n<code>"
             .format(cmd))
         await message.edit(template)
         stdout, stderr = process.communicate()
