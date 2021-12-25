@@ -28,7 +28,7 @@ class Terminal:
     logger.setLevel(logging.ERROR)
 
 
-async def bashxxx(message):
+    async def bashxxx(message):
         cmd = utils.get_arg(message)
         process = subprocess.Popen(
             cmd.split(),
