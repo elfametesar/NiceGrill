@@ -4,7 +4,6 @@ dnspython
 meval
 mtranslate
 urbandict
-pygdrive3fixed
 emoji
 fontTools
 pytube3
