@@ -39,7 +39,10 @@ class GoogleDrive:
         if message.is_reply or arg.startswith("http") or arg.startswith("www"):
             file = (await dl.dlxxx(message)).split("/")
         else:
-            if "/" not in arg:
+            if "/" in arg:
+                file = arg.split("/")
+            else:
+                arg = "./" + arg
                 file = arg.split("/")
         if await settings.check_gfolder():
             folder = await settings.check_gfolder()
